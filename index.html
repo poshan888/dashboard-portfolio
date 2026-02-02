@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Basic SEO -->
+  <title>ErgoIQ Shop Dashboard | Equipment Recommendations & Orders</title>
+
+  <meta name="description"
+    content="ErgoIQ Shop Dashboard provides insights into equipment recommendations, license usage, and order management with real-time analytics." />
+
+  <meta name="keywords"
+    content="ErgoIQ, shop dashboard, equipment recommendations, ergonomic equipment, order management, licenses analytics" />
+
+  <meta name="author" content="ErgoIQ" />
+
+  <!-- Viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ErgoIQ Shop Dashboard" />
+  <meta property="og:description"
+    content="Track equipment recommendations, licenses, and orders with ErgoIQ's Shop Dashboard." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.ergoiq.com/shop" />
+  <meta property="og:image" content="/assets/og-dashboard.png" />
+
+
+  <!-- WCAG: Color contrast + font -->
+  <meta name="theme-color" content="#0a4b5e">
+  <link rel="icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="assets/css/icons.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- <link rel="stylesheet" href="css/responsive.css" /> -->
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<header class="header" role="banner">
+  <div class="logo-section">
+    <img src="assets/images/logo.svg" alt="ergoIQ logo" srcset="assets/images/logo.svg" width="140" height="50" class="logo" loading="lazy" />
+  </div>
+  <div class="hamburger-wrap">
+    <div class="header-left">
+      <button 
+        class="hamburger" 
+        id="hamburger"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="sidebar">
+        <span class="icon icon-HamburgerMenu"></span>
+      </button>
+    </div>
+    <div class="header-right">
+      <select name="profile" id="profile-option" class="form-select profile-dropdown">
+        <option value="user-name">Greg Solis</option>
+        <span class="hr-line"></span>
+        <option value="logout">Logout</option>
+      </select>
+    </div>
+  </div>
+
+  <nav class="top-nav" aria-label="Primary">
+    <a href="#">HOME - Needs Assessment</a>
+    <a href="#">FIT- Self Assessment</a>
+    <a href="#">LIVE - Virtual Consultation</a>
+    <a href="#" class="active" aria-current="page">SHOP e-commerce</a>
+    <a href="#">LEARN - e-learning</a>
+  </nav>
+
+</header>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <section class="content">
+    <div role="tablist" aria-label="Shop sections" class="shop-tabs">
+      <button role="tab" aria-selected="true" tabindex="0" class="tab active">
+        <i class="icon icon-approveEquipment">
+          <span class="badge">46</span>
+        </i>
+        Approved Recommendations
+      </button>
+      <button role="tab" aria-selected="false" tabindex="-1" class="tab">
+        <i class="icon icon-cart">
+          <span class="badge">7</span>
+        </i>
+        Order Management
+      </button>
+      <button role="tab" aria-selected="false" tabindex="-1" class="tab">
+        <i class="icon icon-monitor_WebDesign"></i>
+        Web Design
+      </button>
+      <button role="tab" aria-selected="false" tabindex="-1" class="tab">
+        <i class="icon icon-products">
+          <span class="badge danger">7</span>
+        </i>
+        Products
+      </button>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main id="mainContent" class="content" role="main">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <h1 class="d-flex align-items-center gap-2"><span class="icon icon-dashboard"></span> SHOP Dashboard</h1>
+      <button class="btn btn-dark"><span class="icon icon-export"></span> Export to Excel</button>
+    </div>
+
+    <div class="card-wrapper">
+
+      <!-- UTILIZATION -->
+      <section class="card utilization-card">
+  
+        <aside class="filters">
+          <h3 class="utilization-text"><img class="img" src="assets/images/fit_Score.svg" width="40" height="40" loading="lazy" /> Utilization</h3>
+
+          <h4 class="filter-text"><img src="assets/images/filter.svg" alt="filter icon" srcset="assets/images/filter.svg" width="16" height="16" loading="lazy" /> Filter By</h4>
+  
+          <select class="form-select" id="filter-date-range" name="filter-date-range">
+            <option value="date-range">Date Range</option>
+            <option value="month-range">Month Range</option>
+            <option value="year-range">Year Range</option>
+            <option value="custom-range">Custom Range</option>
+          </select>
+          
+          <div class="option-custom-range">
+            <label for="date-custom-bar" class="option-custom-head">
+              <input type="radio" name="custom-select-bar" id="date-custom-bar" value="custom" aria-selected="true" checked /> Custom
+            </label>
+            <span>06/14/2025 To 06/20/2024</span>
+          </div>
+  
+          <p class="filter-text-label">Identifiers <button type="button" class="icon icon-add"></button></p>
+          
+          <div class="filters-badge-wrap">
+            <div class="pill">Region: Americas  <button type="button" class="icon icon-cross"></button></div>
+            <div class="pill">City: Atlanta <button type="button" class="icon icon-cross"></button></div>
+            <div class="pill">City: Boston <button type="button" class="icon icon-cross"></button></div>
+            <div class="pill">City: Chicago <button type="button" class="icon icon-cross"></button></div>
+            <div class="pill">Location: In-office <button type="button" class="icon icon-cross"></button></div>
+          </div>
+        </aside>
+  
+        <div class="utilization-main">
+  
+          <div class="stats">
+            <p class="stats-wrap"><span class="stats-num">146</span><span class="stats-text">Licenses Remaining</span></p>
+            <p class="stats-wrap"><span class="stats-num">340</span><span class="stats-text">Total Licenses</span></p>
+          </div>
+          
+          <p class="stats-wrap"><span class="stats-num">236</span><span class="stats-text">Total Orders</span></p>
+          <div class="donut-row">
+            <div class="donut-outer">
+              <div class="donut-wrapper">
+                <canvas id="reqChart"></canvas>
+                <p class="donut-label">44</p>
+              </div>
+              <span class="donut-progress-text">Order Requests</span>
+            </div>
+            <div class="donut-outer">
+              <div class="donut-wrapper">
+                <canvas id="progressChart"></canvas>
+                <p class="donut-label">51</p>
+              </div>
+              <span class="donut-progress-text">Orders In progress</span>
+            </div>
+            <div class="donut-outer">
+              <div class="donut-wrapper">
+                <canvas id="submittedChart"></canvas>
+                <p class="donut-label">64</p>
+              </div>
+              <span class="donut-progress-text">Orders Submitted</span>
+            </div>
+          </div>
+  
+          <div class="progress-row">
+            <p class="progress-row-title"><span class="number">136</span> Cases Closed</p>
+            <div class="progress">
+              <div class="progress-fill" style="width:48%">48%</div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- RECOMMENDATIONS -->
+      <section class="card filters" aria-labelledby="recommendationTitle">
+        <h3 class="utilization-text"><img class="img" src="assets/images/products.svg" width="40" height="40" loading="lazy" /> Recommendations</h3>
+  
+        <div class="recommendation-card">
+          <aside class="filters">
+            <!-- LEFT DONUT -->
+            <div class="donut-wrapper">
+              <canvas id="pendingChart" width="100"></canvas>
+              <!-- <span class="donut-badge"></span> -->
+              <p class="donut-label">248</p>
+            </div>
+            <p class="recommend-progress-pending-text">Recommendations Pending Approval</p>
+  
+            <h4 class="filter-text"><img src="assets/images/filter.svg" alt="filter icon" srcset="assets/images/filter.svg" width="16" height="16" loading="lazy" /> Filter By</h4>
+    
+            <select class="form-select" id="filter-date-range" name="filter-date-range">
+              <option value="date-range">Date Range</option>
+              <option value="month-range">Month Range</option>
+              <option value="year-range">Year Range</option>
+              <option value="custom-range">Custom Range</option>
+            </select>
+            
+            <div class="option-custom-range">
+              <label for="date-custom" class="option-custom-head">
+                <input type="radio" name="custom-select" id="date-custom" value="custom" aria-selected="true" checked /> Custom
+              </label>
+              <span>06/14/2025 To 06/20/2024</span>
+            </div>
+    
+            <p class="filter-text-label">Identifiers <button type="button" class="icon icon-add"></button></p>
+            
+            <div class="filters-badge-wrap">
+              <div class="pill">Region: Americas  <button type="button" class="icon icon-cross"></button></div>
+              
+            </div>
+          </aside>
+          <div class="recommendation-grid">
+    
+            <!-- RIGHT BARS -->
+            <div class="bar-list">
+              <div class="recommend-progress">
+                <p class="recommend-progress-stats"><span class="count">564</span> Total Equipment Recommendations</span>
+              </div>
+    
+              <canvas id="equipmentChart"></canvas>
+    
+            </div>
+    
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+</div>
+
+<script src="assets/js/script.js"></script>
+<script src="assets/js/charts.js"></script>
+</body>
+</html>
